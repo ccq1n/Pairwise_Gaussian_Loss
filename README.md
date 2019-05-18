@@ -16,8 +16,18 @@ We are playing with [Tensorflow](https://tensorflow.google.cn/) on the
 [CIFAR100](http://www.cs.toronto.edu/~kriz/cifar.html), CIFAR100+ and 
 [SVHN](http://ufldl.stanford.edu/housenumbers/) datasets.
 
+## Files
+- Tensorflow
+   * softmax loss
+   * softmax loss with sigmoid
+   * softmax loss with cauchy
+   * softmax loss with hinge-like
+   * softmax loss with PGL
+- PyTorch
+   * 
+
 ## Third-party re-implementation
 
-PyTorch: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
-TensorFlow: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
+- PyTorch: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
+- TensorFlow: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
 
