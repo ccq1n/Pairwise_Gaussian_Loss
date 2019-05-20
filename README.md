@@ -18,16 +18,17 @@ We are playing with [Tensorflow](https://tensorflow.google.cn/) on the
 
 ## Files
 - Tensorflow
-   * softmax loss
-   * softmax loss with sigmoid
-   * softmax loss with cauchy
-   * softmax loss with hinge-like
-   * softmax loss with PGL
+  Base on the VGG
+   
 - PyTorch
-   * 
+
+  Compare the effects of different network structures on the CIFAR10 with data augmentation, 
+  such as MobileNetV2, ResNet18, ResNeXt29, DenseNet121, PreActResNet18. 
+  
+- Features of MNIST viewed on 2D
 
 ## Third-party re-implementation
 
-- PyTorch: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
-- TensorFlow: [code]() by [qinyuxiang1995](https://github.com/qinyuxiang1995).
+- PyTorch: [code](https://github.com/qinyuxiang1995/Pairwise_Guassian_Loss/tree/master/pytorch) by [qinyuxiang1995](https://github.com/qinyuxiang1995).
+- TensorFlow: [code](https://github.com/qinyuxiang1995/Pairwise_Guassian_Loss/tree/master/tensorflow) by [qinyuxiang1995](https://github.com/qinyuxiang1995).
 
