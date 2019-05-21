@@ -18,17 +18,33 @@ We are playing with [Tensorflow](https://tensorflow.google.cn/) on the
 
 ## Files
 - Tensorflow
-  Base on the VGG
+
+  Under the VGG network structure, we compare the classification effects of our PGL, original Softmax, 
+  Softmax+Sigmoid [1], Softmax+Hinge-like [2], Softmax+Cauchy [3], and Center Loss [4].
    
 - PyTorch
 
   Compare the effects of different network structures on the CIFAR10 with data augmentation, 
   such as MobileNetV2, ResNet18, ResNeXt29, DenseNet121, PreActResNet18. 
   
-- Features of MNIST viewed on 2D
+- MNIST visualization
+  
+  
+  
 
 ## Third-party re-implementation
 
 - PyTorch: [code](https://github.com/qinyuxiang1995/Pairwise_Guassian_Loss/tree/master/pytorch) by [qinyuxiang1995](https://github.com/qinyuxiang1995).
 - TensorFlow: [code](https://github.com/qinyuxiang1995/Pairwise_Guassian_Loss/tree/master/tensorflow) by [qinyuxiang1995](https://github.com/qinyuxiang1995).
 
+## References
+[1] Yandong Wen, Kaipeng Zhang, Zhifeng Li, and Yu Qiao. A discriminative feature learning approach for
+deep face recognition. In European conference on computer vision, pages 499–515. Springer, 2016.
+
+[2]
+
+[3]
+
+[4]
+
+[5]
