@@ -1,4 +1,4 @@
-# Pairwise Gaussian Loss for Convolutional Neural Networks
+# Pairwise Gaussian Loss
 
 ## Introduction
 
