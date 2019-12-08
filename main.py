@@ -12,56 +12,33 @@ import torchvision.transforms as transforms
 import os
 import argparse
 
+import config as cfg
 from models import *
 from loss_function import *
+from data import *
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+# choose GPU
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
-parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
+parser = argparse.ArgumentParser(description='PyTorch Training')
 parser.add_argument('--lr', default=0.01, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 args = parser.parse_args()
 
-'''
-adjust learning rate 0.1 0.01 0.001 0.0001
-'''
-
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-best_acc = 0  # best test accuracy
+best_acc = 0     # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
-
-BETA = 0.05
-PARM = 1.0
 
 # Data
 print('==> Preparing data..')
-transform_train = transforms.Compose([
-    transforms.RandomCrop(32, padding=4),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-])
-
-transform_test = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-])
-
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
-
-testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
-testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
+# data = MNIST('/data/qinyuxiang/Dataset/MNIST')
+data = SVHN('/data/qinyuxiang/Paper_test/cifar_pytorch/data')
+trainloader = data.getTrainLoader()
+testloader = data.getTestLoader()
 
 # Model
 print('==> Building model..')
-net = VGG('CIFAR10')
-# net = ResNet18()
-# net = PreActResNet18()
-# net = DenseNet121()
-# net = ResNeXt29_32x4d()
-# net = MobileNetV2()
-
+net = VGG(cfg.vgg_set[data.dataName])
 net = net.to(device)
 
 if device == 'cuda':
@@ -94,10 +71,12 @@ def train(epoch):
 
         cross_entropy_loss = criterion(outputs, targets)
 
-        pairwise_loss = pairwise_gaussian_loss(euclidean_dist_all(features), targets, beta=BETA)
-        # pairwise_loss = pairwise_sigmoid_loss(euclidean_dist_all(features), targets)
+        pairwise_loss = pairwise_gaussian_loss(euclidean_dist_all(features), targets, data.numClass, beta=cfg.BETA)
+        # pairwise_loss = pairwise_sigmoid_loss(euclidean_dist_all(features), targets, data.numClass, aerfa=cfg.AERFA)
+        # pairwise_loss = pairwise_cauchy_loss(euclidean_dist_all(features), targets, data.numClass, gamma=cfg.GAMMA)
+        # pairwise_loss = pairwise_hinge_loss(euclidean_dist_all(features), targets, data.numClass)
 
-        loss = cross_entropy_loss + PARM * pairwise_loss
+        loss = cross_entropy_loss + cfg.PARM * pairwise_loss
 
         loss.backward()
         optimizer.step()
@@ -140,6 +119,6 @@ def test(epoch):
         torch.save(state, './checkpoint/ckpt.t7')
         best_acc = acc
 
-for epoch in range(start_epoch, start_epoch+200):
+for epoch in range(start_epoch, start_epoch+50):
     train(epoch)
     test(epoch)
