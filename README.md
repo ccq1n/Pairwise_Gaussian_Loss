@@ -1,4 +1,4 @@
-# Pairwise Gaussian Loss for Convolutional Neural Networks
+# Pairwise Gaussian Loss for Convolutional Neural Networks [IEEEXplore](https://ieeexplore.ieee.org/document/8947983)
 
 The paper was accepted by IEEE Transactions on Industrial Informatics. 
 
