@@ -1,4 +1,4 @@
-# Pairwise Gaussian 
+# Pairwise Gaussian Loss for Convolutional Neural Networks
 
 Created by Yuxiang Qin, Tongji University.
 
