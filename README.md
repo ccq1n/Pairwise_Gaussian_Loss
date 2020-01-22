@@ -56,4 +56,6 @@ As shown in the table below, we use a single-channel network structure that is s
 | ResNet-152    | double-channel | 118.33M | 46.29G  | 1087.10ms |
 | DenseNet-121  | double-channel | 38.10M  | 17.25G  | 1326.87ms |
 
+## Contact Us
+
 _If you have any problem, please feel free to contact me._
