@@ -1,6 +1,8 @@
 # Pairwise Gaussian Loss for Convolutional Neural Networks
 
-Created by Yuxiang Qin, Tongji University.
+The paper was accepted by IEEE Transactions on Industrial Informatics. 
+
+The code is developed by [ccq1n](https://github.com/ccq1n).
 
 ## Introduction
 
