@@ -1,4 +1,6 @@
-# Pairwise Gaussian Loss
+# Pairwise Gaussian 
+
+Created by Yuxiang Qin, Tongji University.
 
 ## Introduction
 
